@@ -1,53 +1,70 @@
 import 'package:flutter/material.dart';
 import 'package:todo/Settings/Settings.dart';
 import 'package:todo/Task/Task.dart';
+import 'package:todo/addTaskBottom.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String routeName = 'HomeScreen';
+  static const String routeName = 'Home';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int SelectedIndex=0 ;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-        Text('Todo'),),
+        title: Text('Todo App'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        shape: StadiumBorder(
+            side: BorderSide(
+                color: Colors.white, width: 4)),
+        onPressed: (){
+          showAddTaskBottomSheet();
+        },
+        child: Icon(
+            Icons.add
+        ),
+      ),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 8,
         child: BottomNavigationBar(
-          currentIndex: SelectedIndex,
+          currentIndex: selectedIndex,
           onTap: (index){
-            SelectedIndex=index;
-            setState((){});
+            selectedIndex = index;
+            setState(() {
+
+            });
           },
-          backgroundColor: Colors.transparent,
-          elevation: 0,
           showUnselectedLabels: false,
           showSelectedLabels: false,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.list) ,label: 'Task list'),
-            BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.list),
+                label: ''
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: ''
+            ),
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton:FloatingActionButton(
-        shape: StadiumBorder(
-          side: BorderSide(color: Colors.white,width: 4),
-        ),
-        child: Icon(Icons.add),
-        onPressed: (){},
-      ),
-      body: Tabs[SelectedIndex],
+      body: tabs[selectedIndex],
     );
   }
-  var Tabs= [TaskTab(),SettingsTabs()];
 
+  List<Widget>tabs = [TasksListTab(),SettingsTabs()];
+
+  void showAddTaskBottomSheet(){
+    showModalBottomSheet(context: context, builder: (buildContext){
+      return AddTaskBottomSheet();
+    });
+  }
 }

@@ -1,37 +1,37 @@
 {
   "project_info": {
-    "project_number": "267444703808",
-    "project_id": "todo-app-fddd8",
-    "storage_bucket": "todo-app-fddd8.appspot.com"
+    "project_number": "298747865626",
+    "project_id": "todo-87b43",
+    "storage_bucket": "todo-87b43.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:267444703808:android:3f444b86a90b6e0459c5a5",
+        "mobilesdk_app_id": "1:298747865626:android:b5da7963bd63c535fa3fa3",
         "android_client_info": {
           "package_name": "com.example.apptodo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "267444703808-dhh9stl2j7pu96l1ghqfm7os0spml5sj.apps.googleusercontent.com",
+          "client_id": "298747865626-hqrsmtrjdc6og8jmuhlmldor4munat65.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB7NSxEuFk7SzQKtzfg4l1QI4MdjumZG9o"
+          "current_key": "AIzaSyAh1EHhcDl0CFH5ph4C-EnRso168ngmf9I"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "267444703808-dhh9stl2j7pu96l1ghqfm7os0spml5sj.apps.googleusercontent.com",
+              "client_id": "298747865626-hqrsmtrjdc6og8jmuhlmldor4munat65.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "267444703808-d1c1g6gagplpq3pi99225g04e12d6rs8.apps.googleusercontent.com",
+              "client_id": "298747865626-b2ud82b7qfnoqfrm9bmftmlaije843th.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.example.todo"
@@ -43,31 +43,31 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:267444703808:android:4026de231d8a57cc59c5a5",
+        "mobilesdk_app_id": "1:298747865626:android:92e469ccb24ef68efa3fa3",
         "android_client_info": {
           "package_name": "com.example.todo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "267444703808-dhh9stl2j7pu96l1ghqfm7os0spml5sj.apps.googleusercontent.com",
+          "client_id": "298747865626-hqrsmtrjdc6og8jmuhlmldor4munat65.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB7NSxEuFk7SzQKtzfg4l1QI4MdjumZG9o"
+          "current_key": "AIzaSyAh1EHhcDl0CFH5ph4C-EnRso168ngmf9I"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "267444703808-dhh9stl2j7pu96l1ghqfm7os0spml5sj.apps.googleusercontent.com",
+              "client_id": "298747865626-hqrsmtrjdc6og8jmuhlmldor4munat65.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "267444703808-d1c1g6gagplpq3pi99225g04e12d6rs8.apps.googleusercontent.com",
+              "client_id": "298747865626-b2ud82b7qfnoqfrm9bmftmlaije843th.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.example.todo"

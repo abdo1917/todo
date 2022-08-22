@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB7NSxEuFk7SzQKtzfg4l1QI4MdjumZG9o',
-    appId: '1:267444703808:android:4026de231d8a57cc59c5a5',
-    messagingSenderId: '267444703808',
-    projectId: 'todo-app-fddd8',
-    storageBucket: 'todo-app-fddd8.appspot.com',
+    apiKey: 'AIzaSyAh1EHhcDl0CFH5ph4C-EnRso168ngmf9I',
+    appId: '1:298747865626:android:92e469ccb24ef68efa3fa3',
+    messagingSenderId: '298747865626',
+    projectId: 'todo-87b43',
+    storageBucket: 'todo-87b43.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDlJ0Z_aqUkl21J3Ingm31pLfIq1dIY01Y',
-    appId: '1:267444703808:ios:ed8efb31e63d0dfc59c5a5',
-    messagingSenderId: '267444703808',
-    projectId: 'todo-app-fddd8',
-    storageBucket: 'todo-app-fddd8.appspot.com',
-    iosClientId: '267444703808-d1c1g6gagplpq3pi99225g04e12d6rs8.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDxeHhzPDOqyR5NX3yM-ZN-55bcbyVAT8A',
+    appId: '1:298747865626:ios:8e2e2ec195091678fa3fa3',
+    messagingSenderId: '298747865626',
+    projectId: 'todo-87b43',
+    storageBucket: 'todo-87b43.appspot.com',
+    iosClientId: '298747865626-b2ud82b7qfnoqfrm9bmftmlaije843th.apps.googleusercontent.com',
     iosBundleId: 'com.example.todo',
   );
 }
