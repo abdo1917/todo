@@ -9,6 +9,7 @@ import 'package:todo/firebase_options.dart';
 import 'package:todo/my_theme.dart';
 import 'package:todo/provider.dart';
 
+
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -17,6 +18,7 @@ void main()async{
   FirebaseFirestore.instance.disableNetwork();
   runApp(ChangeNotifierProvider(
       create: (BuildContext context)=>TasksProvider(),
+
       child: MyApp()));
 }
 class MyApp extends StatelessWidget{
