@@ -3,6 +3,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/my_theme.dart';
 
+import '../EditTime.dart';
 import '../database/My_database.dart';
 import '../database/task.dart';
 import '../dialog_utils.dart';
@@ -24,7 +25,7 @@ class _TaskWidgetState extends State<TaskWidget> {
         motion: DrawerMotion(),
         children: [
           SlidableAction(
-            onPressed: (buildContext){
+            onPressed: (buildContext) {
               deleteTask(widget.task);
             },
             backgroundColor: Color(0xFFFE4A49),
@@ -32,16 +33,26 @@ class _TaskWidgetState extends State<TaskWidget> {
             icon: Icons.delete,
             label: 'Delete',
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12),
-                bottomLeft:Radius.circular(12)
-            ),
+                topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
+            spacing: 12,
+          ),
+          SlidableAction(
+            onPressed: (_) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => EditTask(widget.task)),);
+            },
+            backgroundColor: Color(0xFF23A240),
+            foregroundColor: Colors.white,
+            icon: Icons.edit,
+            label: 'Edit',
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
             spacing: 12,
           )
         ],
       ),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16,vertical: 24),
-        margin: EdgeInsets.symmetric(vertical: 8,horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+        margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
@@ -62,25 +73,47 @@ class _TaskWidgetState extends State<TaskWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('${widget.task.title}',style: Theme.of(context).textTheme.titleMedium,
+                  Text(
+                    '${widget.task.title}',
+                    style: Theme.of(context).textTheme.titleMedium,
                     textAlign: TextAlign.start,
                   ),
-                  SizedBox(height:8,),
+                  SizedBox(
+                    height: 8,
+                  ),
                   Row(
                     children: [
-                      Text(widget.task.content??"",style: Theme.of(context).textTheme.bodySmall,)
+                      Text(
+                        widget.task.content ?? "",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      )
                     ],
                   )
                 ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              padding: EdgeInsets.symmetric(vertical: 8,horizontal: 24),
-              child: Icon(Icons.check),
+            InkWell(
+              onTap: () {
+                checkIsDone();
+                // widget.task.isDone = !widget.task.isDone!;
+              },
+              child: widget.task.isDone!
+                  ? Text(
+                      'Done',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                          color: Color(0xFF61E757)),
+                    )
+                  : Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+                      child: Icon(Icons.check),
+                    ),
             )
           ],
         ),
@@ -88,26 +121,31 @@ class _TaskWidgetState extends State<TaskWidget> {
     );
   }
 
-  void deleteTask(Task task){
+  void deleteTask(Task task) {
     showLoading(context, 'Loading...');
-    var provider = Provider.of<TasksProvider>(context,listen: false);
-    MyDatabase.deleteTask(widget.task)
-        .then((value){
+    var provider = Provider.of<TasksProvider>(context, listen: false);
+    MyDatabase.deleteTask(widget.task).then((value) {
       provider.retrieveTasks();
       hideLoading(context);
       // call when task is completed
-      showMessage(context, 'Task deleted Successfully',
-          posActionName:'ok');
+      showMessage(context, 'Task deleted Successfully', posActionName: 'ok');
     }).onError((error, stackTrace) {
       hideLoading(context);
-      showMessage(context, 'please try again later',
-          posActionName:'ok');
-    }).timeout(Duration(seconds: 5,),onTimeout: (){
+      showMessage(context, 'please try again later', posActionName: 'ok');
+    }).timeout(
+        Duration(
+          seconds: 5,
+        ), onTimeout: () {
       hideLoading(context);
       provider.retrieveTasks();
-      showMessage(context, 'data saved locally',
-          posActionName:'ok');
+      showMessage(context, 'data saved locally', posActionName: 'ok');
+    });
+  }
+
+  void checkIsDone() {
+    var taskRef = MyDatabase.getTasksCollection();
+    taskRef.doc(widget.task.id).update({
+      'isDone': widget.task.isDone! ? false : true,
     });
   }
 }
-

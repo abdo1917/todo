@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/EditTime.dart';
 import 'package:todo/HomeScreen.dart';
+import 'package:todo/database/task.dart';
 import 'package:todo/firebase_options.dart';
 import 'package:todo/my_theme.dart';
 import 'package:todo/provider.dart';
@@ -13,7 +15,9 @@ void main()async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
   FirebaseFirestore.instance.disableNetwork();
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (BuildContext context)=>TasksProvider(),
+      child: MyApp()));
 }
 class MyApp extends StatelessWidget{
   @override
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget{
       child: MaterialApp(
         theme: MyTheme.lightTheme,
         routes: {
-          HomeScreen.routeName : (buildContext)=> HomeScreen()
+          HomeScreen.routeName : (buildContext)=> HomeScreen(),
         },
         initialRoute: HomeScreen.routeName,
       ),

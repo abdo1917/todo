@@ -42,5 +42,16 @@ class MyDatabase {
     var taskRef = tasksCollection.doc(task.id);
     return taskRef.delete();
   }
+  static Future<void> EditTask(Task task) {
+    CollectionReference taskRef = getTasksCollection();
+    return taskRef.doc(task.id).update(
+      {
+        'id' : task.id,
+        'title': task.title,
+        'content': task.content,
+        // 'dateTime': task.dateTime = dateOnly(task.dateTime!),
+      }
+    );
+  }
 
 }
