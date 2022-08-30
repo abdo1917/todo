@@ -112,8 +112,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
       }).timeout(Duration(seconds: 3),onTimeout:() {
         hideLoading(context);
         provider.retrieveTasks();
-        showMessage(context, 'Error connecting to server,'
-            'please try again',posActionName: 'ok');
+        showMessage(context, 'task added locally',posActionName: 'ok');
       },).timeout(Duration(seconds: 5,),onTimeout: (){
         hideLoading(context);
         showMessage(context, 'task added locally',

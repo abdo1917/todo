@@ -34,21 +34,6 @@ class setting_providers extends ChangeNotifier {
     return current_language=='en';
   }
 
-  String getMainBackgroung(){
-    return IsDark()?
-    'assets/images/Background_dark.png':
-    'assets/images/background_pattern.png';
-  }
 
-  String getSebhaHead(){
-    return IsDark()?
-    'assets/images/head_sebha_dark.png':
-    'assets/images/head_sebha_logo.png';
-  }
-  String getSebhaBody(){
-    return IsDark()?
-    'assets/images/body_sebha_dark.png':
-    'assets/images/body_sebha_logo.png';
-  }
 
 }

@@ -18,44 +18,8 @@ class _SettingsTabsState extends State<SettingsTabs> {
 
     return Container(
       padding: EdgeInsets.all(8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text('language'),
-          SizedBox(height: 4,),
-          InkWell(
-            onTap: (){
-              showLanguageButtomSheet();
-            },
-            child: Container(
 
-              decoration: BoxDecoration(
-                border: Border.all(color: Theme.of(context).primaryColor, width: 1,),
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.transparent,
-              ),
-              padding: EdgeInsets.all(8),
-              child:
-              Text('english'),
-            ),
-          ),
-          SizedBox(height: 16,),
-          Text('Theme'),
-          SizedBox(height: 4,),
-          InkWell(
-            onTap: showThemeButtomSheet,
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Theme.of(context).primaryColor, width: 1,),
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.transparent,
-              ),
-              padding: EdgeInsets.all(8),
-              child:
-              Text('light'),            ),
-          )
-        ],
-      ),
+
     );
   }
 
